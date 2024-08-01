@@ -3,8 +3,21 @@ const yargs = require('yargs')
 yargs.command({
     command: 'list',
     describe: 'list is getting added',
-    handler: () => {
-        console.log("list is adding")
+    builder: {
+        title: {
+            describe: "title note",
+            demandOption: true,
+            type: 'string'
+        },
+        body: {
+            describe: "body note",
+            demandOption: true,
+            type: 'string'
+        }
+    },
+    handler: (argv) => {
+        console.log("title: " + argv.title)
+        console.log("body: " + argv.body)
     }
 })
 yargs.command({
@@ -14,4 +27,4 @@ yargs.command({
         console.log("reading the notes")
     }
 })
-console.log(yargs.argv)
+yargs.parse();
