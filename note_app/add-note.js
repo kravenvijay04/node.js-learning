@@ -1,5 +1,5 @@
 const fs = require('fs')
-
+//adding a new note
 const addNote = (title, body) => {
     const notes = load();
     const duplicate = notes.filter((note) => {
@@ -17,7 +17,7 @@ const addNote = (title, body) => {
         console.log("title already taken")
     }
 }
-
+//for loading
 const load = () => {
     try {
         const data = fs.readFileSync('notes.json')
